@@ -46,7 +46,7 @@ _Para personalizar **Git** se puede consultar con el comando `man git-config ` o
 # 
 ### Comandos 📋
 
-_Para conocer la versión de **Git** que acabamos de instalar utilizamos `git --version `
+_Para conocer la versión de **Git** que acabamos de instalar utilizamos `git --version `_
 
 ```ssh
 $git --version
