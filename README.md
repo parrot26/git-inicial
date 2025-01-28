@@ -1,348 +1,296 @@
 ![Imagen.](/image/git-logo.png "Imagen.")
 
 # 
-# _GIT - Inicial_
+# Git - Inicial
  
-### Comenzando 🚀
-_[Git](https://es.wikipedia.org/wiki/Git) es un sistema de control de versión distribuida de código abierto y gratuito diseñado por por [Linus Torvalds](https://es.wikipedia.org/wiki/Linus_Torvalds) para manejar todo tipo de proyectos._ 
+## Comenzando 🚀
+[Git](https://es.wikipedia.org/wiki/Git) es un sistema de control de versión distribuida de código abierto y gratuito diseñado por por [Linus Torvalds](https://es.wikipedia.org/wiki/Linus_Torvalds) para manejar todo tipo de proyectos.
 
-_En su página oficial [Git](https://git-scm.com/) podemos encontrar su [Descarga](https://git-scm.com/downloads), [Instalación](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) y mucho más._
+En su página oficial [Git](https://git-scm.com/) podemos encontrar su [Descarga](https://git-scm.com/downloads), [Instalación](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) y mucho más.
 
 # 
 ### Pre-requisitos 📋
-_Ganas de aprender_
+Ganas de meter mano.
 
 # 
-### Los tres estados 📋
+### Los 3️⃣ estados
 
-_Git tiene tres estados principales: **Modificado** (modified), **Preparado**(staged) y **Confirmado** (committed)._
+Git tiene tres estados principales: **Modificado** (modified), **Preparado**(staged) y **Confirmado** (committed).
 
-_**Modificado** significa que el archivo fue modificado pero todavía no está confirmado a la base de datos._ 
+> **Modificado** significa que el archivo fue modificado pero todavía no está confirmado a la base de datos.
 
-_**Preparado** significa que se marcó un archivo modificado en su actual versión para la próxima confirmación._
+> **Preparado** significa que se marcó un archivo modificado en su actual versión para la próxima confirmación.
 
-_**Confirmado** significa que los datos están en tu base de datos local._ 
+> **Confirmado** significa que los datos están en tu base de datos local.
 
-_En un ambiente local el flujo sería:_
+En un ambiente local el flujo sería:
 
-_**Working Directory**  > **Staging** > **Local Repository**_
-
-
-# 
-### Configuración básica  ⚙️
- 
-_Después de instalar **Git** es importante configurar tu nombre de usuario y tu dirección de correo electrónico._ 
-
-_Esto no es obligatorio para su funcionamiento pero las confirmaciones (commits) de cambios que hagas quedan registrados con esta información y es muy útil cuando se trabaja con varias personas._
-
-`git config --global user.name "[tu-nombre]"`  # se configura tu nombre de usuario.
-
-`git config --global  user.email "[tuemail@ejemplo.com]"`  # se configura tu correo.
-
-`git config --list ` # lista la configuración actual de git.
-
-_Para personalizar **Git** se puede consultar con el comando `man git-config ` o directamente en su [documentación oficial](https://git-scm.com/docs/git-config.html)_
+**Working Directory**  > **Staging** > **Local Repository**
 
 # 
-### Comandos 📋
+# 
+# Comandos 📋
 
-_Para conocer la versión de **Git** que acabamos de instalar utilizamos `git --version `_
+### Instalación ⬇️
 
-```ssh
-$git --version
-git version 2.25.1 
-```
-###### _En este momento la versión utilizada para estos ejemplos es la **2.25.1**_
+Documentación oficial para la [Instalación de git](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git) en Linux, Mac y Windows.
 
-_Con el comando `git --help `se puede obtener una lista de comandos más utilizados._
+## Git Cheat Sheet
 
-_Una vez ejecutado sale algo parecido a:_
+### Configuración ⚙️
 
-```ssh
-git --help
-uso: git [--version] [--help] [-C <ruta>] [-c <nombre>=<valor>]
-           [--exec-path[=<ruta>]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
-           [--git-dir=<ruta>] [--work-tree=<ruta>] [--namespace=<nombre>]
-           <comando> [<args>]
+*   **`git config --global user.name "Tu Nombre"`**: Configura tu nombre de usuario para los commits.
+*   **`git config --global user.email "tu.email@example.com"`**: Configura tu dirección de correo electrónico para los commits.
+*   **`git config --global color.ui auto`**: Habilita el coloreado automático de la salida de Git en la terminal.
+*   **`git config --list`**: Muestra la configuración actual de Git.
+*   **`git --version`**: Muestra versión utilizada de Git.
+*   **`git --help`**: Ayuda sobre los comandos.
 
-Estos son comandos comunes de Git usados en varias situaciones:
+## Inicio de un proyecto 🙌
 
-comienza un área de trabajo (ver también: git help tutorial)
-   clone             Clona un repositorio dentro de un nuevo directorio
-   init              Crea un repositorio de Git vacío o reinicia el que ya existe
+*   **`git init`**: Inicializa un nuevo repositorio Git en el directorio actual.
+*   **`git clone <url_del_repositorio>`**: Clona un repositorio Git existente desde una URL.
 
-trabaja en los cambios actuales (ver también: git help everyday)
-   add               Agrega contenido de carpetas al índice
-   mv                Mueve o cambia el nombre a archivos, directorios o enlaces simbólicos
-   restore           Restaurar archivos de árboles de trabajo
-   rm                Borra archivos del árbol de trabajo y del índice
-   sparse-checkout   Inicializa y modifica el sparse-checkout
+## Trabajo con cambios 🔄
 
-examina el historial y el estado (ver también: git help revisions)
-   bisect            Use la búsqueda binaria para encontrar el commit que introdujo el bug
-   diff              Muestra los cambios entre commits, commit y árbol de trabajo, etc
-   grep              Imprime las líneas que concuerdan con el patron
-   log               Muestra los logs de los commits
-   show              Muestra varios tipos de objetos
-   status            Muestra el estado del árbol de trabajo
+*   **`git status`**: Muestra el estado de los archivos en el directorio de trabajo (modificados, añadidos, etc.).
+*   **`git add <archivo>`**: Añade un archivo al área de preparación (staging area) para el próximo commit.
+*   **`git add .`**: Añade todos los archivos modificados y nuevos al área de preparación.
+*   **`git commit -m "Mensaje del commit"`**: Crea un nuevo commit con los cambios en el área de preparación.
+*   **`git diff`**: Muestra las diferencias entre el directorio de trabajo y el área de preparación.
+*   **`git diff --staged`**: Muestra las diferencias entre el área de preparación y el último commit.
+*   **`git rm <archivo>`**: Elimina un archivo del repositorio y del directorio de trabajo.
+*   **`git mv <archivo_antiguo> <archivo_nuevo>`**: Renombra o mueve un archivo.
 
-crece, marca y ajusta tu historial común
-   branch            Lista, crea, o borra ramas
-   commit            Graba los cambios en tu repositorio
-   merge             Junta dos o más historiales de desarrollo juntos
-   rebase            Vuelve a aplicar commits en la punta de otra rama
-   reset             Reinicia el HEAD actual a un estado especifico
-   switch            Cambiar branches
-   tag               Crea, lista, borra o verifica un tag de objeto firmado con GPG
+## Trabajo con ramas (branches) 🌿
 
-colabora (mira también: git help workflows)
-   fetch             Descarga objetos y referencias de otro repositorio
-   pull              Realiza un fetch e integra con otro repositorio o rama local
-   push              Actualiza referencias remotas junto con sus objetos asociados
+*   **`git branch`**: Lista todas las ramas locales.
+*   **`git branch <nombre_de_la_rama>`**: Crea una nueva rama.
+*   **`git checkout <nombre_de_la_rama>`**: Cambia a una rama diferente.
+*   **`git checkout -b <nombre_de_la_rama>`**: Crea y se cambia a una rama nueva.
+*   **`git merge <nombre_de_la_rama>`**: Fusiona una rama con la rama actual.
+*   **`git branch -d <nombre_de_la_rama>`**: Elimina una rama (solo si ya ha sido fusionada).
+*   **`git branch -D <nombre_de_la_rama>`**: Elimina una rama (forzado, incluso si no ha sido fusionada).
 
-'git help -a' y 'git help -g' listan los subcomandos disponibles y algunas
-guías de concepto. Consulte 'git help <command>' o 'git help <concepto>'
-para leer sobre un subcomando o concepto específico.
-Mira 'git help git' para una vista general del sistema.
+## Trabajo con repositorios remotos ☁️
 
-```
+*   **`git fetch <remoto>`**: Descarga los objetos y referencias del repositorio remoto especificado, pero no los integra en tus ramas locales.
+*   **`git fetch <remoto> <rama>`**: Descarga los objetos y referencias de una rama específica del repositorio remoto.
+*   **`git pull <remoto> <rama>`**: Descarga los cambios del repositorio remoto y los fusiona (merge) en tu rama local actual. Es equivalente a `git fetch` seguido de `git merge`.
+*   **`git pull --rebase <remoto> <rama>`**: Similar a `git pull`, pero utiliza rebase en lugar de merge para integrar los cambios remotos. Esto crea un historial de commits más lineal y limpio.
+*   **`git push <remoto> <rama>`**: Envía tus commits locales a la rama especificada del repositorio remoto.
+*   **`git push <remoto> <rama> --force`**: Fuerza la subida de tus commits locales a la rama remota. ¡Úsalo con precaución, ya que puede sobrescribir cambios de otros!
+*   **`git push --all <remoto>`**: Envía todas tus ramas locales al repositorio remoto.
+*   **`git remote`**: Lista los repositorios remotos configurados.
+*   **`git remote -v`**: Lista los repositorios remotos con más detalle, mostrando las URLs de fetch y push.
+*   **`git remote add <nombre> <url>`**: Añade un nuevo repositorio remoto con un nombre específico.
+*   **`git remote remove <nombre>`**: Elimina un repositorio remoto.
+*   **`git remote rename <antiguo_nombre> <nuevo_nombre>`**: Renombra un repositorio remoto.
 
-###### _Al final de la salida de la ejecución del comando se puede observar más formas de obtener información detallada._
+
+## Historial y revisión 📰
+
+*   **`git log`**: Muestra el historial de commits.
+*   **`git log --oneline`**: Muestra el historial de commits en una línea por commit.
+*   **`git show <commit_hash>`**: Muestra los detalles de un commit específico.
+*   **`git blame <archivo>`**: Muestra quién hizo cada cambio en un archivo.
+
+## Deshacer cambios ◀️
+
+*   **`git revert <commit_hash>`**: Crea un nuevo commit que deshace los cambios de un commit anterior.
+*   **`git reset HEAD <archivo>`**: Quita un archivo del área de preparación (pero no lo modifica en el directorio de trabajo).
+*   **`git checkout -- <archivo>`**: Descarta los cambios en un archivo del directorio de trabajo y lo restaura a la versión del último commit.
+
+## Stashing (Cambios temporales) 😶
+
+*   **`git stash`**: Guarda los cambios no confirmados en un "stash" temporal.
+*   **`git stash list`**: Lista los stashes guardados.
+*   **`git stash apply`**: Aplica el último stash guardado.
+*   **`git stash drop`**: Elimina el último stash guardado.
+
+## Tags (Etiquetas) 🚩
+
+*   **`git tag`**: Lista todas las etiquetas (tags) en el repositorio.
+*   **`git tag -l "patrón"`**: Lista las etiquetas que coinciden con un patrón específico.
+*   **`git tag <nombre_de_la_etiqueta>`**: Crea una etiqueta ligera (ligera) que apunta al commit actual.
+*   **`git tag -a <nombre_de_la_etiqueta> -m "Mensaje de la etiqueta"`**: Crea una etiqueta anotada con un mensaje.
+*   **`git tag -a <nombre_de_la_etiqueta> <commit_hash> -m "Mensaje de la etiqueta"`**: Crea una etiqueta anotada para un commit específico.
+*   **`git show <nombre_de_la_etiqueta>`**: Muestra información sobre una etiqueta específica.
+*   **`git push origin <nombre_de_la_etiqueta>`**: Envía una etiqueta al repositorio remoto.
+*   **`git push origin --tags`**: Envía todas las etiquetas al repositorio remoto.
+*   **`git tag -d <nombre_de_la_etiqueta>`**: Elimina una etiqueta local.
+*   **`git push origin --delete <nombre_de_la_etiqueta>`**: Elimina una etiqueta en el repositorio remoto.
+
+
+## Otros comandos útiles ✏️
+
+*   **`git help <comando>`**: Muestra la ayuda para un comando específico.
+*   **`git diff <rama1> <rama2>`**: Muestra las diferencias entre dos ramas.
+*   **`git bisect`**: Utiliza la búsqueda binaria para encontrar el commit que introdujo un error.
+*   **`git ls-tree --name-only <nombre_de_la_rama>`**: Lista los archivos actuales en la rama específicada.
+
+## Alias 👽
+
+*   **`git config --global alias.<alias> "<comando>"`**: Crea un alias para un comando. Por ejemplo: `git config --global alias.co checkout` te permite usar `git co` en lugar de `git checkout`.
+
+Este es un "cheat sheet" completo, pero Git tiene muchos más comandos y opciones. ¡Explora la documentación oficial de Git para obtener información más detallada!
+
+# Aprendiendo Git: ¡Hora de usarlo! 😄
+
+Vamos a sumergirnos en el mundo de Git con un ejemplo práctico. Aprenderás a configurar Git, crear un proyecto, realizar cambios, guardar versiones, explorar el historial, trabajar con ramas y fusionar cambios.
+
+## 0. Configuración inicial de Git
+
+Antes de empezar a usar Git, necesitamos configurarlo con tu información personal. Abre la terminal o línea de comandos y ejecuta los siguientes comandos:
+
+1.  **Configura tu nombre de usuario:**
+
+    ```bash
+    git config --global user.name "Tu Nombre Completo"
+    ```
+
+2.  **Configura tu dirección de correo electrónico:**
+
+    ```bash
+    git config --global user.email "[dirección de correo electrónico eliminada]"
+    ```
+
+    ¡Importante! Asegúrate de usar tu nombre y correo electrónico reales, ya que esta información se asociará a tus commits.
+
+3.  **(Opcional) Configura el editor de texto:** Git utiliza un editor de texto para algunos comandos. Puedes configurar tu editor preferido (como Nano, Vim, VS Code, etc.). Por ejemplo, para configurar VS Code:
+
+    ```bash
+    git config --global core.editor "code --wait"
+    ```
+
+    Si no estás familiarizado con la línea de comandos, te recomiendo usar un editor con interfaz gráfica como VS Code.
+
+## 1. Creando tu proyecto y el repositorio Git
+
+1.  **Crea una carpeta:** Elige un lugar en tu computadora y crea una carpeta para tu proyecto. Puedes llamarla "mi\_proyecto\_git".
+
+2.  **Abre la terminal:** Abre la terminal o línea de comandos y navega hasta la carpeta de tu proyecto.
+
+3.  **Inicializa Git:** Convierte tu carpeta en un repositorio Git. ¡Es como darle superpoderes de control de versiones!
+
+    ```bash
+    git init
+    ```
+
+## 2. Agregando archivos y haciendo tu primer commit
+
+1.  **Crea archivos:** Dentro de la carpeta "mi\_proyecto\_git", crea algunos archivos. Pueden ser archivos de texto, imágenes, código, ¡lo que quieras! Por ejemplo, crea un archivo llamado "README.md" y escribe una breve descripción de tu proyecto.
+
+2.  **Agrega archivos a Git:** Dile a Git qué archivos quieres controlar. ¡Es como prepararlos para la máquina del tiempo!
+
+    ```bash
+    git add .  # Agrega todos los archivos
+    ```
+
+3.  **Haz tu primer commit:** Guarda la primera versión de tus archivos. ¡Es como tomar la primera foto de tu proyecto!
+
+    ```bash
+    git commit -m "Primer commit: Archivos iniciales"
+    ```
+
+## 3. Explorando el historial y volviendo atrás
+
+1.  **Ve el historial:** Observa todas las versiones que has guardado (los commits). ¡Es como ver el álbum de fotos de tu proyecto!
+
+    ```bash
+    git log
+    ```
+
+2.  **Vuelve a una versión anterior:** Viaja en el tiempo a un commit anterior. ¡Puedes ver cómo era tu proyecto en ese momento!
+
+    ```bash
+    git checkout <hash_del_commit>  # Reemplaza <hash_del_commit> con el código del commit
+    ```
+
+3.  **Regresa al presente:** Vuelve a la versión más reciente de tu proyecto.
+
+    ```bash
+    git checkout main  # O el nombre de tu rama principal
+    ```
+
+## 4. Trabajando con ramas (branches)
+
+1.  **Crea una rama:** Imagina que quieres probar una nueva función sin afectar la versión principal de tu proyecto. ¡Crea una rama para experimentar!
+
+    ```bash
+    git branch nueva_funcionalidad
+    ```
+
+2.  **Cambia a la nueva rama:** Ahora estás trabajando en la rama "nueva\_funcionalidad". ¡Cualquier cambio que hagas aquí no afectará la rama principal!
+
+    ```bash
+    git checkout nueva_funcionalidad
+    ```
+
+3.  **Haz cambios en la nueva rama:** Modifica archivos, agrega nuevos, ¡lo que necesites para tu nueva función!
+
+4.  **Guarda los cambios en la nueva rama:**
+
+    ```bash
+    git add .
+    git commit -m "Añadida nueva funcionalidad"
+    ```
+
+## 5. Fusionando ramas (merging)
+
+1.  **Vuelve a la rama principal:** Ya estás listo para integrar tu nueva función en la versión principal del proyecto.
+
+    ```bash
+    git checkout main
+    ```
+
+2.  **Fusiona la rama:** Une los cambios de la rama "nueva\_funcionalidad" a la rama principal. ¡Es como combinar las fotos de tus experimentos con las fotos principales del proyecto!
+
+    ```bash
+    git merge nueva_funcionalidad
+    ```
+
+3.  **¡Listo!** Los cambios de la nueva rama ahora están en la rama principal.
+
+## 6. Resolviendo conflictos (si es necesario)
+
+A veces, al fusionar ramas, Git puede encontrar conflictos (cambios en el mismo lugar de un archivo). En ese caso, tendrás que editar los archivos manualmente para resolver los conflictos y luego volver a agregar los archivos modificados a Git.
+
+## ¡Felicidades! 🏆
+
+Has completado un viaje épico por el mundo de Git. Aprendiste a configurar Git, crear un proyecto, guardar versiones, explorar el historial, trabajar con ramas y fusionar cambios. ¡Ahora estás listo para dominar el control de versiones y colaborar en proyectos de cualquier tamaño!
+
+**¡Sigue explorando y practicando Git, tarde o temprano lo vas a tener que utilizar!**
 
 # 
-### Hora de meter mano y utilizar los comandos básicos 🛠️
+## Contribuyendo 🖇️
 
+Las contribuciones son lo que hacen que la comunidad de código abierto sea un lugar mejor. Cualquier contribución que hagas será muy apreciada.
 
-* _Creamos el directorio **test** en el directorio vamos a usar, por ejemplo: **~/Documentos/IT/GIT/test**._
-
-```ssh
-$mkdir test
-$cd test/
-```
-* _Agregamos el archivo **ejemplo.txt** y dentro un comentario._
-
-```ssh
-$nano ejemplo.txt
-$cat ejemplo.txt 
-Hola, esto es un ejemplo
-```
-
-* _Ejecutando `git init ` creamos el repositorio para que sea manejado por **Git**._
-
-```ssh
-$git init
-Inicializado repositorio Git vacío en ~/Documentos/IT/GIT/test/.git/
-```
-* _En este ejemplo estamos generando nosotros el repositorio pero si queremos trabajar con uno existente:_
-
-   * _Desde repo local: `git clone /path/to/repository `_
-
-   * _Desde repo remoto: `git clone username@host:/path/to/repository `_
-
-
-###### _Se puede consultar como obtener un [repositorio](https://git-scm.com/book/es/v2/Fundamentos-de-Git-Obteniendo-un-repositorio-Git) en su página oficial._
-
-* _Con `ls -alh ` nos va a listar el archivo **ejemplo.txt** y el directorio **.git** oculto._
-
-```ssh
-$ls -alh
-total 4,0K
-drwxr-xr-x 1 jps jps  30 oct 18 15:41 .
-drwxr-xr-x 1 jps jps 232 oct 18 15:39 ..
--rw-r--r-- 1 jps jps  26 oct 18 15:41 ejemplo.txt
-drwxr-xr-x 1 jps jps  98 oct 18 15:41 .git
-```
-* _Ahora con `git status ` podemos ver en qué estado se encuentran los archivos de nuestro repositorio._
-
-```ssh
-$git status
-En la rama master
-
-No hay commits todavía
-
-Archivos sin seguimiento:
-  (usa "git add <archivo>..." para incluirlo a lo que se será confirmado)
-	ejemplo.txt
-
-no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
-```
-###### _En esta guía inicial vamos a trabajar todo sobre la misma rama (**branch**)_
-
-* _Ahora con `git add [nombre-archivo] ` lo prepara para que pueda ser rasteable y pendiente a cambios. También se puede ejecutar `git add . ` para incluir todos._
-
-```ssh
-$git add ejemplo.txt
-```
-* _Revisamos nuevamente el estado._
-
-```ssh
-$git status
-En la rama master
-
-No hay commits todavía
-
-Cambios a ser confirmados:
-  (usa "git rm --cached <archivo>..." para sacar del área de stage)
-	nuevo archivo:  ejemplo.txt
-```
-* _Confirmamos el cambio para que pase a la base de datos local y le agregamos un comentario._
-
-```ssh
-$git commit -m "agregamos el archivo ejemplo"
-[master (commit-raíz) 3969ef1] agregamos el archivo ejemplo
- 1 file changed, 2 insertions(+)
- create mode 100644 ejemplo.txt
-```
-* _Gracias a `git log ` podemos ver los cambios que se hicieron._
-
-```ssh
-$git log
-commit 3969ef18d2130a8d984c985060cbedd2ca95b40a (HEAD -> master)
-Author: Juan Pablo Soto <juanpablo.soto@protonmail.com>
-Date:   Mon Oct 18 15:44:40 2021 -0300
-
-    agregamos el archivo ejemplo
-```
-###### _Al ver los logs podemos ver quien hizo cada cambio._
-
-* Volvemos a ver el estado.
-
-```ssh
-$git status
-En la rama master
-nada para hacer commit, el árbol de trabajo está limpio
-```
-* _Ahora vamos a modificar el archivo y le agregamos, por ejemplo, otra línea de texto._
-
-```ssh
-$nano ejemplo.txt 
-cat: _filedir: No existe el fichero o el directorio
-$cat ejemplo.txt 
-Hola, esto es un ejemplo
-Ahora se agregó esta línea
-```
-* _Al ver el estado vemos que fue modificado._
-
-```ssh
-$git status
-En la rama master
-Cambios no rastreados para el commit:
-  (usa "git add <archivo>..." para actualizar lo que será confirmado)
-  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
-	modificado:     ejemplo.txt
-
-sin cambios agregados al commit (usa "git add" y/o "git commit -a")
-```
-* _Preparamos el archivo, lo confirmamos y le agregamos un nuevo comentario._
-
-```ssh
-$git add .
-$git commit -m "Se agregó una nueva línea"
-[master 23cf09b] Se agregó una nueva línea
- 1 file changed, 1 insertion(+)
-```
-* _Verificamos su estado y vemos los cambios a nivel de logs._
-
-```ssh
-$git status
-En la rama master
-nada para hacer commit, el árbol de trabajo está limpio
-$git log
-commit 23cf09b49560396bf744b77345e4840f20708778 (HEAD -> master)
-Author: Juan Pablo Soto <juanpablo.soto@protonmail.com>
-Date:   Mon Oct 18 15:51:16 2021 -0300
-
-    Se agregó una nueva línea
-
-commit 3969ef18d2130a8d984c985060cbedd2ca95b40a
-Author: Juan Pablo Soto <juanpablo.soto@protonmail.com>
-Date:   Mon Oct 18 15:44:40 2021 -0300
-
-    agregamos el archivo ejemplo
-```
-
-* _Nos damos cuenta que la última línea que pusimos no iba y hay que volver para atrás. Para eso usamos `git reset HEAD~ `._
-
-```ssh
-$git reset HEAD~
-Cambios fuera del área de stage tras el reset:
-M	ejemplo.txt
-$git status
-En la rama master
-Cambios no rastreados para el commit:
-  (usa "git add <archivo>..." para actualizar lo que será confirmado)
-  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
-	modificado:     ejemplo.txt
-	
-	sin cambios agregados al commit (usa "git add" y/o "git commit -a")
-```
-* _El archivo salió de la confirmación pero sigue modificado y ahora usamos `git checkout ` y volvemos a revisar el estado._
-
-```ssh
-$git checkout ejemplo.txt
-Actualizada 1 ruta desde el index
-$git status
-En la rama master
-nada para hacer commit, el árbol de trabajo está limpio
-```
-* _Observando los logs verificamos que se ha vuelto al primer cambio._
-
-```ssh
-$git log
-commit 3969ef18d2130a8d984c985060cbedd2ca95b40a (HEAD -> master)
-Author: Juan Pablo Soto <juanpablo.soto@protonmail.com>
-Date:   Mon Oct 18 15:44:40 2021 -0300
-
-    agregamos el archivo ejemplo
-```
-* _Con `git reflog ` podemos ver el historial completo._
-
-```ssh
-$git reflog
-3969ef1 (HEAD -> master) HEAD@{0}: reset: moving to HEAD~
-23cf09b HEAD@{1}: commit: Se agregó una nueva línea
-3969ef1 (HEAD -> master) HEAD@{2}: commit (initial): agregamos el archivo ejemplo
-```
-____
-
-_Esta es una guía inicial para empezar a entender como funciona **Git** pero esto es solo el comienzo._
-
-_Existen muchísimos comandos más, nuevas funcionalidades, trabajar con diferentes ramas (branches), etiquetas (tags), varios usuarios, confictos, flujo de trabajo, utilizar repositorios en la nube [GitHub](https://github.com/) etc. y etc..._
+Si queres aportar con alguna sugerencia para mejorarlo, simplemente un **fork** en el repo y crear un **pull request**. También podes abrir un issue con la etiqueta **enhancement**. ¡No te olvides de sumar una estrella al repo! **¡Gracias de nuevo!**
 
 # 
-### Contribuyendo 🖇️
-
-_Las contribuciones son lo que hacen que la comunidad de código abierto sea un lugar mejor. Cualquier contribución que hagas será muy apreciada._
-
-_Si queres aportar con alguna sugerencia para mejorarlo, simplemente un **fork** en el repo y crear un **pull request**. También podes abrir un issue con la etiqueta **enhancement**. ¡No te olvides de sumar una estrella al repo! **¡Gracias de nuevo!**_
-
-# 
-### Autor ✒️
+## Autor ✒️
 
 * **Juan Pablo Soto** - [GitHub](https://github.com/parrot26) - [Linkedin](www.linkedin.com/in/juanpablosoto26)
 
 # 
-### Licencia 📄
+## Licencia 📄
 
 Este proyecto está bajo la Licencia **MIT** - mira el archivo [LICENSE](LICENSE) para detalles
 
 
 # 
-### Expresiones de Gratitud 🎁
+## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este repo 📢
 * Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
 * Da las gracias públicamente 🤓.
 
-#### _Gracias a:_
+#### Gracias a:
 
-* [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
-* [ParrotOS](https://www.parrotsec.org/)
-* [Linkedin](https://www.linkedin.com/)
-
+* [GitHub](https://github.com/)
 
 ---
-⌨️ con ❤️ por [Juan Pablo Soto](https://github.com/parrot26)
-
+⌨️ con 💪 por [Juan Pablo Soto](https://github.com/parrot26)
